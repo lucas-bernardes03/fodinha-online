@@ -10,13 +10,4 @@ import java.util.Optional;
 @Service
 public class GameService {
     private static List<Game> games;
-
-    public Game addPlayerToGame(Player player, String gameId){
-        Optional<Game> optionalGame = games.stream().filter(g -> g.getId().equals(gameId)).findFirst();
-        if(optionalGame.isPresent()){
-            optionalGame.get().addPlayer(player);
-            return optionalGame.get();
-        }
-        else return null;
-    }
 }

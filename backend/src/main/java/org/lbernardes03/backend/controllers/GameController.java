@@ -1,23 +1,21 @@
 package org.lbernardes03.backend.controllers;
 
-import org.lbernardes03.backend.models.Game;
-import org.lbernardes03.backend.models.Player;
+import org.lbernardes03.backend.models.dto.JoinGameDTO;
 import org.lbernardes03.backend.services.GameService;
-import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value = "/game")
 public class GameController {
     private final GameService gameService;
     public GameController(GameService gameService){
         this.gameService = gameService;
     }
 
-    @PostMapping("/join/{id}")
-    public ResponseEntity<Game> joinGame(@PathVariable String id, @RequestBody Player player){
-        Game game = gameService.addPlayerToGame(player, id);
-        return ResponseEntity.ok(game);
+    @MessageMapping("/join")
+    @SendTo("/client/joinGame")
+    public String joinGame(JoinGameDTO dto){
+        return "PLAYER: " + dto.playerId + " JOINED THE GAME: " + dto.gameId;
     }
 }
