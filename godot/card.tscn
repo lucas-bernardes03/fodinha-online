@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5lx1jjwewqrh"]
+
+[ext_resource type="Script" path="res://card.gd" id="1_x7is3"]
+[ext_resource type="Texture2D" uid="uid://cyl15sjcepwiy" path="res://assets/red_backing.png" id="1_xagim"]
+
+[sub_resource type="Animation" id="Animation_oxg5n"]
+resource_name = "Select"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardBack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(49.125, 66), Vector2(49.125, 24)]
+}
+
+[sub_resource type="Animation" id="Animation_adbfx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardBack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(49.125, 66)]
+}
+
+[sub_resource type="Animation" id="Animation_bgqcc"]
+resource_name = "Deselect"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardBack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(49.125, 24), Vector2(49.125, 66)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfjqv"]
+_data = {
+"Deselect": SubResource("Animation_bgqcc"),
+"RESET": SubResource("Animation_adbfx"),
+"Select": SubResource("Animation_oxg5n")
+}
+
+[node name="Card" type="Container"]
+custom_minimum_size = Vector2(105, 135)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_x7is3")
+
+[node name="CardBack" type="Sprite2D" parent="."]
+position = Vector2(49.125, 66)
+scale = Vector2(1.67982, 1.67982)
+texture = ExtResource("1_xagim")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qfjqv")
+}
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
