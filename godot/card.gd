@@ -23,8 +23,15 @@ func _on_gui_input(event: InputEvent) -> void:
 				Game.cardSelected = true
 				if cardHighlighted:
 					self.get_child(0).hide()
-			elif event.button_mask == 0:
-				if !Game.mouseOnPlacement:
-					cardHighlighted = false
-					self.get_child(0).show()
+		elif event.button_mask == 0:
+			if !Game.mouseOnPlacement:
+				cardHighlighted = false
+				self.get_child(0).show()
+			else:
+				self.queue_free()
+				get_node("../../CardPlacement").placeCard()
 			
+			for i in get_tree().get_root().get_node("Board/CardHolder").get_child_count():
+				#remover a carta
+				get_tree().get_root().get_node("Board/CardHolder").get_child(i).queue_free()
+			Game.cardSelected = false
