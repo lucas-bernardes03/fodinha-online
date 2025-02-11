@@ -11,7 +11,4 @@ func _on_mouse_exited() -> void:
 
 func placeCard():
 	var cardTemp = card.instantiate()
-	var width = ProjectSettings.get_setting("display/window/size/viewport_width")
-	var height = ProjectSettings.get_setting("display/window/size/viewport_height")
-	cardTemp.global_position = Vector2(width/2, height/2) - self.position
 	add_child(cardTemp)

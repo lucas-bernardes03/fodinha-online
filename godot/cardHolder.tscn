@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1nnuxr3fdq0n"]
 
-[ext_resource type="Texture2D" uid="uid://cyl15sjcepwiy" path="res://assets/red_backing.png" id="1_w3ts1"]
+[ext_resource type="Texture2D" uid="uid://cyl15sjcepwiy" path="res://assets/card_backs/red_backing.png" id="1_w3ts1"]
 
 [sub_resource type="GDScript" id="GDScript_6ryyg"]
 script/source = "extends Container
