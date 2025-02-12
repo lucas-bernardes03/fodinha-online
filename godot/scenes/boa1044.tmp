@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://devfxw7imva0n"]
 
-[ext_resource type="PackedScene" uid="uid://cl87kis337ax3" path="res://card_placement.tscn" id="1_0ymd0"]
-[ext_resource type="Script" path="res://card_container.gd" id="1_p7t0p"]
-[ext_resource type="PackedScene" uid="uid://b5lx1jjwewqrh" path="res://card.tscn" id="2_ucjo0"]
+[ext_resource type="PackedScene" uid="uid://cl87kis337ax3" path="res://scenes/card_placement.tscn" id="1_0ymd0"]
+[ext_resource type="Script" path="res://scripts/board.gd" id="1_oyplq"]
+[ext_resource type="Script" path="res://scripts/card_container.gd" id="1_p7t0p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12pb7"]
 bg_color = Color(0, 0.337255, 0.0470588, 0.439216)
 
 [node name="Board" type="Node2D"]
+script = ExtResource("1_oyplq")
 
 [node name="CardHolder" type="Node" parent="."]
 
@@ -29,16 +30,8 @@ theme_override_constants/separation = -20
 alignment = 1
 script = ExtResource("1_p7t0p")
 
-[node name="Card" parent="CanvasLayer/CardContainer" instance=ExtResource("2_ucjo0")]
-layout_mode = 2
-
-[node name="Card2" parent="CanvasLayer/CardContainer" instance=ExtResource("2_ucjo0")]
-layout_mode = 2
-
-[node name="Card3" parent="CanvasLayer/CardContainer" instance=ExtResource("2_ucjo0")]
-layout_mode = 2
-
 [node name="Panel" type="Panel" parent="CanvasLayer"]
+z_index = -1
 offset_left = 225.0
 offset_top = 243.0
 offset_right = 927.0
@@ -61,5 +54,13 @@ offset_bottom = 81.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="DealButton" type="Button" parent="CanvasLayer"]
+offset_left = 46.0
+offset_top = 547.0
+offset_right = 172.0
+offset_bottom = 599.0
+text = "DAR CARTAS"
+
 [connection signal="mouse_entered" from="CanvasLayer/CardContainer" to="CanvasLayer/CardContainer" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/CardContainer" to="CanvasLayer/CardContainer" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/DealButton" to="." method="_on_deal_button_pressed"]

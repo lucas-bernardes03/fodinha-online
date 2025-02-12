@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="godot"
-run/main_scene="res://menu.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Game="*res://Game.gd"
+Game="*res://scripts/Game.gd"
 
 [rendering]
 

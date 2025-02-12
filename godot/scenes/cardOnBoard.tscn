@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://duuk6tpyxahnd"]
 
-[ext_resource type="Texture2D" uid="uid://cyl15sjcepwiy" path="res://assets/card_backs/red_backing.png" id="2_um6q2"]
+[ext_resource type="Texture2D" uid="uid://cyl15sjcepwiy" path="res://assets/card_backs/red_backing.png" id="1_ic83b"]
 
 [sub_resource type="Animation" id="Animation_bgqcc"]
 resource_name = "Deselect"
@@ -8,7 +8,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CardBack:position")
+tracks/0/path = NodePath("CardImage:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +23,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CardBack:position")
+tracks/0/path = NodePath("CardImage:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,7 +39,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CardBack:position")
+tracks/0/path = NodePath("CardImage:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -63,10 +63,10 @@ offset_bottom = 135.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="CardBack" type="Sprite2D" parent="."]
+[node name="CardImage" type="Sprite2D" parent="."]
 position = Vector2(49.125, 66)
 scale = Vector2(1.67982, 1.67982)
-texture = ExtResource("2_um6q2")
+texture = ExtResource("1_ic83b")
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 libraries = {
