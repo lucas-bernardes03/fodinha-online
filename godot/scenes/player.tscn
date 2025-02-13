@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bntad2vp2kft4"]
+
+[ext_resource type="Texture2D" uid="uid://by2dti538dlqi" path="res://assets/Captura de tela 2025-02-13 142146.png" id="1_7b87e"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_futim"]
+
+[node name="Player" type="Container"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 121.0
+script = ExtResource("1_futim")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(41.125, 55)
+scale = Vector2(0.334375, 0.335417)
+texture = ExtResource("1_7b87e")
+
+[node name="CardContainer" type="HBoxContainer" parent="Sprite2D"]
+anchors_preset = -1
+anchor_top = -0.346
+anchor_bottom = -0.346
+offset_left = -121.0
+offset_top = -88.268
+offset_right = 120.0
+offset_bottom = -19.268
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="PlayerName" type="Label" parent="Sprite2D"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.031
+anchor_right = 0.5
+anchor_bottom = 1.031
+offset_left = -240.0
+offset_top = -128.078
+offset_right = -2.0
+offset_bottom = -105.078
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 36
+text = "Jugador
+"
+horizontal_alignment = 1
+vertical_alignment = 1

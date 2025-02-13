@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://do2722trvq3jt"]
+
+[ext_resource type="Texture2D" uid="uid://cyl15sjcepwiy" path="res://assets/card_backs/red_backing.png" id="1_4vqjk"]
+
+[node name="Card" type="Container"]
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.039
+anchor_right = 0.016
+anchor_bottom = 0.039
+offset_left = -18.432
+offset_top = -25.272
+offset_right = 18.568
+offset_bottom = 25.728
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CardImage" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(0.644735, 0.644734)
+texture = ExtResource("1_4vqjk")
